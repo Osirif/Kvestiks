@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "./variables.scss";
+@import "./reset.scss";
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+main,
+header {
+    padding-left: 162px;
+    padding-right: 162px;
+}
+
+%btn {
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    background-color: $accent;
+
+    &:hover {
+        background-color: $btn-hover;
+    }
+
+    &:active {
+        background-color: $btn-active;
+    }
+}
+
+.dflex {
+    display: flex;
+}
+
+/* ШАПКА */
+
+header {
+    box-shadow: 0 2px rgba($color: #000000, $alpha: 0.05);
+
+    .navbar-nav {
+        --bs-navbar-nav-link-padding-x: 0.8rem;
+
+        .nav-text {
+            font-size: 10px;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+
+    .nav-link {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+        width: 12px;
+        height: 12px;
+        border-radius: 50px;
+        padding: 0;
+    }
+
+    .active {
+        background: #D9D9D9;
+        width: 18px;
+        height: 12px;
+        border-radius: 50px;
+        padding: 0;
+    }
+}
+
+/* НАВИГАЦИЯ */
+
+.nav-breadcrumb {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    --bs-breadcrumb-divider: '→';
+    color: $sub_text;
+
+    li {
+        color: $sub_text;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+/* ПРИВЕТСТВЕННЫЙ ЭКРАН */
+
+.card-big {
+    --bs-card-border-width: 0;
+    box-shadow: -3px 3px rgba($color: #000000, $alpha: 0.08);
+    border-radius: 8px;
+    color: $text;
+
+    .card-title {
+        font-size: 36px;
+        font-weight: 800;
+        margin-right: -10vw;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+
+    .col-md-5 {
+        z-index: 999;
+
+        .card-body {
+            padding-left: 2vw;
+            padding-top: 3vh;
+            padding-right: 0;
+            margin-right: 2vw;
+
+            .btns {
+                margin-top: 1.5vh;
+                margin-bottom: 1vh;
+
+                .btn {
+                    --bs-btn-padding-y: .25rem;
+                    --bs-btn-padding-x: .5rem;
+                    --bs-btn-font-size: .75rem;
+                    border: 0;
+                    background-color: rgba(28, 28, 28, 0.05);
+                    color: $sub_text;
+                    font-weight: 600;
+
+                    &:hover {
+                        background-color: rgba(28, 28, 28, 0.05);
+                    }
+                }
+            }
+
+            .card-text {
+                padding-right: 0.9vw;
+            }
+        }
+    }
+
+    .col-md-7 {
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgb(255, 255, 255) 47%, rgba(255, 255, 255, 0) 70%);
+            z-index: 888;
+        }
+
+        &::after {
+            content: 'самый популярный';
+            position: absolute;
+            background-color: rgba($color: #fff, $alpha: 0.8);
+            top: 1vh;
+            right: 1vw;
+            font-size: 10px;
+            border-radius: 3px;
+            width: 8vw;
+            text-align: center;
+        }
+    }
+
+    .img-fluid {
+        width: 100%;
+        position: relative;
+    }
+}
+
+/* ПОКУПКА БИЛЕТОВ */
+
+.card_banks {
+    width: 23%;
+    height: 21.5vh;
+    margin-left: 1.5vw;
+    border: 0;
+    box-shadow: -3px 3px rgba($color: #000000, $alpha: 0.08);
+
+    .text-bank {
+        font-size: 13px;
+        color: rgba($color: $sub_text, $alpha: 0.8);
+    }
+
+    .banks {
+        margin-top: 0.8vh;
+
+        img {
+            padding: 0 0.3rem 0 0.3rem;
+        }
+    }
+
+    .card-text {
+        margin-top: 2vh;
+        font-size: 16px;
+        margin-right: 1vw;
+        margin-left: 1vw;
+        a {
+            color: $accent;
+            text-decoration: none;
+        }
+    }
+
+    .btn {
+        margin-top: 2vh;
+        padding: 1.2vh 2vw;
+        display: flex;
+        justify-content: space-between;
+        @extend %btn;
+    }
+
+    .btn-bank {
+        display: none;
+    }
+}
+
+/* ОТЗЫВЫ КЛИЕНТОВ */
+
+.swiper-container {
+    max-width: 75%;
+    overflow: hidden;
+    h2 {
+        margin-top: 4vh;
+        margin-bottom: 2vh;
+        color: $text;
+        font-size: 28px;
+        font-weight: 800;
+    
+        .count-xs {
+            font-weight: 400;
+            font-size: 13px;
+            margin-top: 1vh;
+        }
+    
+        .d-sm-block {
+            font-size: 16px;
+            font-weight: 400;
+            display: inline !important;
+        }
+    }
+}
+
+.reviews {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .col-xl-4 {
+        @media (min-width:1200px) {
+            width: 96.5%;
+        }
+
+        display: inline-block;
+        white-space: wrap;
+        box-shadow: 1px 0 4px 1px rgba($color: #000000, $alpha: 0.1);
+        border: 0;
+        padding: 1vw;
+        padding-right: 0.5vw;
+        margin-bottom: 1vh;
+    }
+
+    h6 {
+        font-size: 13px;
+        color: $date;
+    }
+
+    h5 {
+        font-size: 14px;
+        color: $sub_text;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    img {
+        margin-bottom: 16px;
+    }
+
+    h3 {
+        font-size: 16px;
+        color: $sub_text;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-size: 14px;
+        color: $comment;
+    }
+}
+
+.swiper-scrollbar {
+    display: block;
+}
+
+.swiper-scrollbar-horizontal {
+    width: 75%;
+}
+.swiper-horizontal > .swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal{
+    position: relative;
+    height: 15px;
+    background-color: #DDDDDD;
+}
+
+.swiper-scrollbar-drag {
+    height: 15px;
+    background-color: #A8A8A8;
+}
+
+.swiper-pagination {
+    display: none;
+}
+
+.review-btn {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+
+    .btn {
+        padding: 1.2vh 10vw;
+        text-align: center;
+        @extend %btn;
+    }
+}
+
+/* АДАПТАЦИЯ */
+
+@media (max-width: 360px) {
+
+html{
+    user-select: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+    main,
+    header {
+        padding: 0;
+    }
+
+    header {
+        .navbar-toggler {
+            border: 0;
+        }
+    }
+
+    .nav-breadcrumb {
+        display: none;
+    }
+
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .card-big {
+        border-radius: 0;
+        --bs-border-radius: 0;
+        text-align: center;
+
+        .card-title {
+            font-size: 28px;
+        }
+
+        .col-md-5 {
+            .card-body {
+                .btns {
+                    padding: 0 20vw;
+
+                    .btn {
+                        background-color: rgba(28, 28, 28, 0.1);
+
+                        &:hover {
+                            background-color: rgba(28, 28, 28, 0.1);
+                        }
+                    }
+                }
+            }
+
+            .card-text {
+                padding: 0 3vw;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .col-md-7 {
+            width: 360px;
+            height: 300px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit:cover;
+            }
+
+            &::before {
+                background: linear-gradient(to top, rgb(255, 255, 255) 55%, rgba(255, 255, 255, 0) 70%);
+            }
+
+            &::after {
+                left: 2vw;
+                right: 0;
+                background-color: rgba(255, 255, 255, 0.6);
+                width: 33vw;
+            }
+        }
+    }
+
+    .review-container {
+        box-shadow: -4px 4px 4px 1px rgba($color: #000000, $alpha: 0.15);
+    }
+
+    .swiper-container {
+        max-width: 100%;
+        h2 {
+            padding: 0 8vw;
+            .d-sm-block {
+                display: none !important;
+            }
+        }
+    }
+
+    .reviews {
+        padding: 0 3vw;
+        display: flex;
+        flex-direction: row;
+
+        .col-11 {
+            width: 92.7%;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+            padding-right: 2vw;
+        }
+    }
+
+    .swiper-scrollbar {
+        display: none;
+    }
+
+    .swiper-pagination {
+        display: block;
+        position: relative;
+        .swiper-pagination-bullet{
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+        }
+        .swiper-pagination-bullet-active{
+            background: #D9D9D9;
+            opacity: 1;
+            width: 16px;
+        }
+    }
+
+    .review-btn {
+        padding: 0 3vw;
+        margin-bottom: 0;
+
+        .btn {
+            width: 100%;
+            margin-bottom: 1.5vh;
+        }
+    }
+
+    .btn-bank {
+        display: block;
+        padding: 0 3vw;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+
+        .btn {
+            padding: 1.2vh 10vw;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            border: 0;
+            background-color: $accent;
+            display: flex;
+            justify-content: space-between;
+
+            &:hover {
+                background-color: $btn-hover;
+            }
+
+            &:active {
+                background-color: $btn-active;
+            }
+        }
+    }
+}
